@@ -1,0 +1,41 @@
+<html>
+<meta charset="UTF-8">
+
+<body>
+
+<h1>hello word!!!</h1>
+<p>this is a html page</p>
+
+<h2>用户登陆</h2>
+
+<h2 id="link-h2" style="cursor: pointer;">
+    用户登陆
+</h2>
+
+<script>
+    document.getElementById("link-h2").addEventListener("click", function() {
+        // 发送异步请求到后端（这里以 POST 请求为例）
+        fetch("/your-backend-url", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ key: "value" })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("请求成功:", data);
+                // 请求成功后跳转到指定链接
+                window.location.href = "https://www.baidu.com";
+            })
+            .catch(error => {
+                console.error("请求出错:", error);
+                // 如果请求出错，也可以选择是否跳转或者给予提示
+                window.location.href = "https://www.baidu.com";
+            });
+    });
+</script>
+
+
+</body>
+</html>
